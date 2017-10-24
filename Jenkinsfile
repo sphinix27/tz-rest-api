@@ -10,13 +10,12 @@ pipeline {
             steps {
                 sh './gradlew clean check'
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/reports/tests/test/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
-                junit 'build/test-results/tests/*.xml'
+                junit 'build/test-results/test/*.xml'
             }
         }
         stage('Package') {
             steps {
                 sh './gradlew clean shadowJar'
-                archive 'build/libs/*'
             }
         }
     }
