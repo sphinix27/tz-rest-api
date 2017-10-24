@@ -16,7 +16,6 @@ pipeline {
         stage('Package') {
             steps {
                 sh './gradlew clean shadowJar'
-                archive 'build/libs/*'
             }
         }
     }
