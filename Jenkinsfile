@@ -17,6 +17,7 @@ pipeline {
             steps {
                 sh './gradlew clean shadowJar'
                 archive 'build/libs/*'
+                archive 'example.yml'
             }
         }
     }
